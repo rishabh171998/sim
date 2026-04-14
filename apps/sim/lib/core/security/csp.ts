@@ -130,7 +130,7 @@ export const buildTimeCSPDirectives: CSPDirectives = {
     ...(isHosted ? ['https://www.googletagmanager.com'] : []),
   ],
 
-  'frame-ancestors': ["'self'"],
+  'frame-ancestors': ["'self'", 'https://graine.ai', 'https://*.graine.ai'],
   'form-action': ["'self'"],
   'base-uri': ["'self'"],
   'object-src': ["'none'"],
@@ -201,7 +201,7 @@ export function generateRuntimeCSP(): string {
     font-src 'self' https://fonts.gstatic.com;
     connect-src 'self' ${appUrl} ${ollamaUrl} ${socketUrl} ${socketWsUrl} https://api.browser-use.com https://api.elevenlabs.io wss://api.elevenlabs.io https://api.exa.ai https://api.firecrawl.dev https://*.googleapis.com https://*.amazonaws.com https://*.s3.amazonaws.com https://*.blob.core.windows.net https://api.github.com https://github.com/* https://*.atlassian.com https://*.supabase.co https://challenges.cloudflare.com https://collector.onedollarstats.com ${gtmConnect} ${dynamicDomainsStr};
     frame-src 'self' https://challenges.cloudflare.com https://drive.google.com https://docs.google.com https://*.google.com ${gtmFrame};
-    frame-ancestors 'self';
+    frame-ancestors 'self' https://graine.ai https://*.graine.ai;
     form-action 'self';
     base-uri 'self';
     object-src 'none';
